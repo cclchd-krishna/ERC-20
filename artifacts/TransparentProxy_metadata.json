@@ -1,0 +1,155 @@
+{
+	"compiler": {
+		"version": "0.8.28+commit.7893614a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_implementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "changeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "implementation",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					}
+				],
+				"name": "upgradeTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"changeAdmin(address)": {
+					"params": {
+						"newAdmin": "The address of the new admin."
+					}
+				},
+				"constructor": {
+					"params": {
+						"_data": "Data for initializing the logic contract (typically the encoded initialize() call).",
+						"_implementation": "The address of the initial logic contract."
+					}
+				},
+				"upgradeTo(address)": {
+					"params": {
+						"newImplementation": "The address of the new logic contract."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"admin()": {
+					"notice": "Returns the current admin (admin-only)."
+				},
+				"changeAdmin(address)": {
+					"notice": "Changes the admin of the proxy."
+				},
+				"constructor": {
+					"notice": "The constructor sets the initial implementation and admin. Optionally, initialization data is passed to the implementation."
+				},
+				"implementation()": {
+					"notice": "Returns the current implementation address (admin-only)."
+				},
+				"upgradeTo(address)": {
+					"notice": "Upgrades the proxy to a new implementation."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"transparentproxy.sol": "TransparentProxy"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"transparentproxy.sol": {
+			"keccak256": "0x879b11d9446842697855d508927164145908737258195c7bc2d44531b4775303",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c99fef2f8b69fe6d03e528cf394eb82ad6bac946885f42bd8f3ce7995b5d8b16",
+				"dweb:/ipfs/QmNyGYAuAtKgD9WBtNEGjMv7f5wM3BKQcAZmdknRNCN7XM"
+			]
+		}
+	},
+	"version": 1
+}

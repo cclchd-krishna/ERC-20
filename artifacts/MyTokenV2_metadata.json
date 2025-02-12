@@ -142,6 +142,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -323,18 +342,30 @@
 		],
 		"devdoc": {
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"burn(uint256)": {
+					"params": {
+						"amount": "The number of tokens to burn."
+					}
+				}
+			},
+			"title": "MyTokenV2",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"burn(uint256)": {
+					"notice": "Burns tokens from the caller's account, reducing the total supply."
+				}
+			},
+			"notice": "This is the new version of the token contract. It inherits from MyTokenV1 and adds a burn function.",
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"token.sol": "MyToken"
+			"token.sol": "MyTokenV2"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -349,11 +380,11 @@
 	},
 	"sources": {
 		"token.sol": {
-			"keccak256": "0x27c78562cc534cf2061f2bc24ae12234346d794f91b16f4a999933608661e6d8",
+			"keccak256": "0xea68aa465aece54f0411991cf4544c3625791793f880304528ca7567d7411f16",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://81b58cd065a1fd265ba190363081aca71a7518626af0fab612f8ef881326224e",
-				"dweb:/ipfs/QmXaXfNRJDkVJ9XoieWxcskYQBW5ZYfkNhHfRKXCQ6zvgr"
+				"bzz-raw://761926bf90e6ad98f6ef89198707dce9abadc36ecb1853fc4b62302ab7cddd1e",
+				"dweb:/ipfs/QmVDdBHL5LybQbW7AFt1jmqf6pmRbS7J5nJcD3VmVHSDmd"
 			]
 		}
 	},

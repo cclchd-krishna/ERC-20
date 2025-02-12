@@ -12,10 +12,10 @@ contract MyToken {
     address public owner;
 
      // Mappings for balances 
-    mapping(address => uint256) private balances;
+    mapping(address => uint256) internal balances;
 
     //Mapping for allowances
-    mapping(address => mapping(address => uint256)) private allowances;
+    mapping(address => mapping(address => uint256)) internal allowances;
 
 
     //Events
@@ -24,6 +24,10 @@ contract MyToken {
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
 
+
+    // Flag to ensure initialize is called only once.
+    bool private initialized;
+
     //only owner can call function with this modifier
     modifier onlyOwner() {
         require(msg.sender == owner, "Caller is not the owner");
@@ -31,13 +35,24 @@ contract MyToken {
     }
 
 
-    //Constructor for the initial process
-    constructor(string memory _name, string memory _symbol, uint8 _decimals) {
-        owner = msg.sender;
+    function initialize(string memory _name, string memory _symbol, uint8 _decimals) public {
+
+        require(!initialized, "Already initialized");
+        initialized = true;
+
         name = _name;
         symbol = _symbol;
         decimals = _decimals;
+        owner = msg.sender;
     }
+
+    // //Constructor for the initial process
+    // constructor(string memory _name, string memory _symbol, uint8 _decimals) {
+    //     owner = msg.sender;
+    //     name = _name;
+    //     symbol = _symbol;
+    //     decimals = _decimals;
+    // }
 
     //Returns the token balance of a given account.
     function balanceOf(address account) public view returns (uint256) {
@@ -47,7 +62,7 @@ contract MyToken {
 
     // Transfers tokens from the caller to a recipient.
     function transfer(address to, uint256 amount) public returns (bool) {
-        require(to != address(0), "Transfer to the zero address is not allowed");
+        require(to != address(0), "Transferring to the zero address is not allowed");
         require(balances[msg.sender] >= amount, "Insufficient balance");
 
         balances[msg.sender] -= amount;
@@ -116,3 +131,9 @@ contract MyToken {
         return true;
     }
 }
+
+
+
+
+
+
